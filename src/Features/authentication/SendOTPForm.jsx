@@ -1,19 +1,13 @@
-import { useState } from 'react';
 import TextField from './../../ui/TextField';
-import { useMutation } from '@tanstack/react-query';
-import { getOtp } from '../../services/authService';
-import toast from 'react-hot-toast';
 import Loading from '../../ui/Loading';
 
-function SendOTPForm({onSubmit, isSendingOtp, phoneNumber, onChange }) {
-
-
+function SendOTPForm({ onSubmit, isSendingOtp, register }) {
 	// useQeery => get
 	// useMutation => post, put, delete
 	return (
 		<div>
 			<form action="" className="space-y-6" onSubmit={onSubmit}>
-				<TextField label="شماره موبایل" name="phoneNumber" value={phoneNumber} onChange={onChange} />
+				<TextField label="شماره موبایل" name="phoneNumber" register={register} />
 				<div>
 					{isSendingOtp ? (
 						<Loading />

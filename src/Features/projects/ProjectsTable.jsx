@@ -8,30 +8,25 @@ function ProjectsTable() {
 	const { isLoading, projects } = useOwnerProjects();
 	if (isLoading) return <Loading />;
 	if (!projects.length) return <Empty resourceName="پروژه" />;
+
 	return (
 		<Table>
 			<Table.Header>
-				<thead>
-					<tr className="title-row">
-						<th>#</th>
-						<th>عنوان پروژه</th>
-						<th>دسته بندی</th>
-						<th>بودجه</th>
-						<th>ددلاین</th>
-						<th>تگ‌ها</th>
-						<th>فریلنسر</th>
-						<th>وضعیت</th>
-						<th>عملیات</th>
-					</tr>
-				</thead>
+				<th>#</th>
+				<th>عنوان پروژه</th>
+				<th>دسته بندی</th>
+				<th>بودجه</th>
+				<th>ددلاین</th>
+				<th>تگ‌ها</th>
+				<th>فریلنسر</th>
+				<th>وضعیت</th>
+				<th>عملیات</th>
 			</Table.Header>
 
 			<Table.Body>
-				<tbody>
-					{projects.map((project, index) => (
-						<ProjectRow key={project._id} project={project} index={index} />
-					))}
-				</tbody>
+				{projects.map((project, index) => (
+					<ProjectRow key={project._id} project={project} index={index} />
+				))}
 			</Table.Body>
 		</Table>
 	);

@@ -7,11 +7,13 @@ import { TbPencilMinus } from 'react-icons/tb';
 import Modal from '../../ui/Modal';
 import { useState } from 'react';
 import ConfirmDelete from '../../ui/ConfirmDelete';
+import useRemoveProject from './useRemoveProject';
+import CreateProjectForm from './CreateProjectForm';
 
 function ProjectRow({ project, index }) {
 	const [isEditOpen, setIsEditOpen] = useState(false);
 	const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-
+	const { removeProject } = useRemoveProject();
 	return (
 		<Table.Row key={project._id}>
 			<td>{index + 1}</td>
@@ -43,7 +45,7 @@ function ProjectRow({ project, index }) {
 							<TbPencilMinus className="w-5 h-5 text-primary-900" />
 						</button>
 						<Modal onClose={() => setIsEditOpen(false)} title={`ویرایش ${project.title}`} open={isEditOpen}>
-							this is modal
+							<CreateProjectForm projectToEdit={project} onClose={() => setIsDeleteOpen(false)} />
 						</Modal>
 					</>
 					<>
@@ -54,7 +56,11 @@ function ProjectRow({ project, index }) {
 							<ConfirmDelete
 								resourceName={project.title}
 								onClose={() => setIsDeleteOpen(false)}
-								onConfirm={() => {}}
+								onConfirm={() =>
+									removeProject(project._id, {
+										onSuccess: () => setIsDeleteOpen(false),
+									})
+								}
 								disabled={false}
 							/>
 						</Modal>

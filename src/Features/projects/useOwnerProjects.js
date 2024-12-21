@@ -6,6 +6,8 @@ export default function useOwnerProjects() {
 		queryKey: ['owner-projects'],
 		queryFn: getOwnerProjectsApi,
 	});
+
 	const { projects } = data || {};
+
 	return { isLoading, projects };
 }

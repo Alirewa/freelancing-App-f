@@ -64,13 +64,13 @@
 .rti--container .rti--input {
 	background-color: rgb(var(--color-secondary-200));
 	color: rgb(var(--color-secondary-800));
-	padding: 0.3rem 1rem;
+	padding: 0.2rem 0.5rem;
 	border-radius: 0.5rem;
 }
 
 .rti--tag {
-	background-color: rgb(var(--color-secondary-500));
-	color: rgb(var(--color-secondary-100));
+	background-color: rgb(var(--color-secondary-200));
+	color: rgb(var(--color-secondary-800));
 }
 
 @layer components {
@@ -90,7 +90,7 @@
 		@apply border border-secondary-700 text-secondary-700;
 	}
 	.btn--danger {
-		@apply border border-rose-700 text-rose-700;
+		@apply bg-red-500 border border-red-700 text-secondary-0;
 	}
 	.badge {
 		@apply inline-block whitespace-nowrap rounded-xl px-2 py-0.5;
