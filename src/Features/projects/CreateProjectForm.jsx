@@ -9,6 +9,8 @@ import useCategories from './../../hooks/useCategories';
 import useCreateProject from './useCreateProject';
 import Loading from './../../ui/Loading';
 import useEditProject from './useEditProject';
+
+
 function CreateProjectForm({ onClose, projectToEdit = {} }) {
 	const { _id: editId } = projectToEdit;
 	const isEditSession = Boolean(editId);
