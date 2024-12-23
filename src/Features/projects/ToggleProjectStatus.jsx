@@ -4,19 +4,19 @@ import Loading from '../../ui/Loading';
 import Toggle from '../../ui/toggle';
 
 function ToggleProjectStatus({project}) {
-    const enabled = project.status === "OPEN" ? true : false;
+    const {status} = project
     const {isUpdating, toggleProject} = useToggleProjectStatus();
     const toggleHandler = () => {
-        const status = project.status === "OPEN" ? "CLOSE" : "OPEN";
+        const newStatus = status === "OPEN" ? "CLOSE" : "OPEN";
         toggleProject({
             id: project._id,
-            data: {status},
+            data: {status: newStatus},
         });
     };
   return (
     <div className='w-[5rem]'>
         {
-            isUpdating ? ( <Loading height={20} width={50} /> ) : (<Toggle label={project.status === "OPEN" ? "باز" : "بسته"} enabled={enabled} onChange={toggleHandler}/>)
+            isUpdating ? ( <Loading height={20} width={50} /> ) : (<Toggle label={project.status === "OPEN" ? "باز" : "بسته"} enabled={project.status === "OPEN" ? true : false} onChange={toggleHandler}/>)
         }
         </div>
   )
