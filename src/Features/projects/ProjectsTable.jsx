@@ -21,6 +21,8 @@ function ProjectsTable() {
 				<th>فریلنسر</th>
 				<th>وضعیت</th>
 				<th>عملیات</th>
+				<th>درخواست‌ها</th>
+
 			</Table.Header>
 
 			<Table.Body>
